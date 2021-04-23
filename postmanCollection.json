@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "da631eba-5369-4038-8cbe-bd6fba6441bd",
+		"name": "Text Analyzer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sample 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "file",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/textAnalyzer/src/test/resources/testFiles/TestFile.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/v2/analyze-text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v2",
+						"analyze-text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sample 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "This contains unicode 平仮名!\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/analyze-text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"analyze-text"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

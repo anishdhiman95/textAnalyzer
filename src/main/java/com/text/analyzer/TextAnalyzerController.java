@@ -44,12 +44,12 @@ public class TextAnalyzerController {
 	 * Implementation of the REST API for Analyzing Text. Accepts a request document
 	 * and returns a response with the statistical information of the request.
 	 * 
-	 * @param requestBean
+	 * @param requestModel
 	 * @return
 	 */
 	@PostMapping("/v1/analyze-text")
 	public ResponseModel analyzeText(@RequestPart("file") MultipartFile file) throws IOException {
-		ResponseModel responseBean = new ResponseModel();
+		ResponseModel requestModel = new ResponseModel();
 
 		// Check if file has a non-null name
 		if (null == file.getOriginalFilename()) {
@@ -65,12 +65,12 @@ public class TextAnalyzerController {
 		new String(bytes, StandardCharsets.UTF_8).codePoints()
 				.mapToObj(character -> Character.valueOf((char) character)).forEach(character -> {
 					CharType charType = CharType.getType(character);
-					processorList.forEach(counter -> counter.process(charType, character));
+					processorList.forEach(processor -> processor.process(charType, character));
 				});
 
 		// Command Pattern: Get Result Command
-		processorList.forEach(processor -> processor.getResult(responseBean));
-		return responseBean;
+		processorList.forEach(processor -> processor.getResult(requestModel));
+		return requestModel;
 
 	}
 

@@ -24,12 +24,14 @@ public class ParagraphProcessor implements TextProcessor {
 	@Override
 	public void process(CharType charType, char c) {
 
-		// Checks to see if the Sentence has had a Alphanumeric or Sentence Seperator before it.
-		if (!isCharacterPresent
-				&& (CharType.ALPHA_NUMERIC.equals(charType) || CharType.SENTENCE_SEPARATOR.equals(charType))) {
+		// Checks to see if the Sentence has had a Alphanumeric or Sentence Seperator
+		// before it.
+		if (!isCharacterPresent && (CharType.ALPHA_NUMERIC.equals(charType)
+				|| CharType.SENTENCE_SEPARATOR.equals(charType) || CharType.NORMAL.equals(charType))) {
 			isCharacterPresent = true;
 		}
-		// If a newline is detected and a alphanumeric is present, it is the case of a correct new line.
+		// If a newline is detected and a alphanumeric is present, it is the case of a
+		// correct new line.
 		if (CharType.NEWLINE.equals(charType) && isCharacterPresent) {
 			count++;
 			isCharacterPresent = false;

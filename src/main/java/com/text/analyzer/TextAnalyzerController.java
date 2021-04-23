@@ -30,11 +30,11 @@ import com.text.analyzer.processors.WordProcessor;
 public class TextAnalyzerController {
 
 	@Autowired
+	WordProcessor wordProcessor;
+	@Autowired
 	SentenceProcessor sentenceProcessor;
 	@Autowired
 	ParagraphProcessor paragraphProcessor;
-	@Autowired
-	WordProcessor wordProcessor;
 	@Autowired
 	DistinctWordProcessor distinctWordProcessor;
 	@Autowired
@@ -61,12 +61,12 @@ public class TextAnalyzerController {
 		List<TextProcessor> processorList = Arrays.asList(sentenceProcessor, paragraphProcessor, wordProcessor,
 				distinctWordProcessor, wordFrequencyProcessor);
 
+		String requestString = new String(bytes, StandardCharsets.UTF_8);
 		// Command Pattern: Process Command
-		new String(bytes, StandardCharsets.UTF_8).codePoints()
-				.mapToObj(character -> Character.valueOf((char) character)).forEach(character -> {
-					CharType charType = CharType.getType(character);
-					processorList.forEach(processor -> processor.process(charType, character));
-				});
+		requestString.codePoints().mapToObj(character -> Character.valueOf((char) character)).forEach(character -> {
+			CharType charType = CharType.getType(character);
+			processorList.forEach(processor -> processor.process(charType, character));
+		});
 
 		// Command Pattern: Get Result Command
 		processorList.forEach(processor -> processor.getResult(requestModel));

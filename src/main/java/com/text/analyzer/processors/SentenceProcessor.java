@@ -25,10 +25,10 @@ public class SentenceProcessor implements TextProcessor {
 	public void process(CharType charType, char c) {
 
 		// Checks to see if the Sentence has had a Alphanumeric before it.
-		if (isNewSentence && CharType.ALPHA_NUMERIC.equals(charType)) {
+		if (isNewSentence && (CharType.ALPHA_NUMERIC.equals(charType) || CharType.NORMAL.equals(charType))) {
 			isNewSentence = false;
 		}
-		// If a newline is detected or a sentence seperator occurss, for an existing
+		// If a newline is detected or a sentence separator occurs, for an existing
 		// sentence, it is considered as a new sentence.
 		if (CharType.SENTENCE_SEPARATOR.equals(charType) || (CharType.NEWLINE.equals(charType) && !isNewSentence)) {
 			count++;

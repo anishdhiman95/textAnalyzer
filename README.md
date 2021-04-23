@@ -8,7 +8,7 @@ This is a Spring boot application that exposes APIs to analyze text documents. T
 * Number of Sentences in the document
 * Number of paragraphs in the document.
 
-**API Definition:**
+### API Definition
 
 
 > **POST:** /v1/analyze-text
@@ -17,22 +17,27 @@ This is a Spring boot application that exposes APIs to analyze text documents. T
 
 > **Returns:** JSON
 
+### Sample API Call
 
-###Additional Information
+<img width="1099" alt="Screen Shot 2021-04-23 at 9 13 44 AM" src="https://user-images.githubusercontent.com/20809306/115899923-3aef6200-a414-11eb-9b48-561a406e6373.png">
 
-**Design Pattern**
+### Additional Information
+
+#### Design Pattern
 Command/Operation Design Pattern
 
-**Performance:**
+#### Performance:
 
 *Time: O(n)*
 
 *Auxiliary Space: O(n) [worst case]*
 
-**Libraries Used:** Common-lang
+#### Libraries Used:
+* commons-lang:commons-lang:2.6
+* junit:junit:4.13.2
+* Spring Framework Libraries
 
-**Repository:** https://github.com/anishdhiman95/textAnalyzer 
 
-**Reference:** https://www.webtools.services/text-analyzer
-
+#### Reference
+https://www.webtools.services/text-analyzer
 

@@ -34,7 +34,7 @@ public class WordFrequencyProcessor implements TextProcessor {
 			word.append(c);
 		} else if (word.length() > 0) {
 			// Word already is formed. Adding it to the HashMap.
-			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString(), 0L) + 1);
+			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString().toLowerCase(), 0L) + 1);
 			word.setLength(0);
 		}
 	}
@@ -47,7 +47,7 @@ public class WordFrequencyProcessor implements TextProcessor {
 	@Override
 	public void getResult(ResponseModel responseModel) {
 		if (word.length() > 0) {
-			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString(), 0L) + 1);
+			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString().toLowerCase(), 0L) + 1);
 		}
 		responseModel.setWordFrequency(new HashMap<String, Long>(wordFreqMap));
 		clear();

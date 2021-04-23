@@ -33,7 +33,7 @@ public class DistinctWordProcessor implements TextProcessor {
 			word.append(c);
 		} else if (word.length() > 0) {
 			// Word already is formed. Adding it to the HashMap
-			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString(), 0L) + 1);
+			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString().toLowerCase(), 0L) + 1);
 			word.setLength(0);
 		}
 	}
@@ -47,7 +47,7 @@ public class DistinctWordProcessor implements TextProcessor {
 	public void getResult(ResponseModel responseModel) {
 		if (word.length() > 0) {
 			// Word already is formed. Adding it to the HashMap
-			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString(), 0L) + 1);
+			wordFreqMap.put(word.toString().toLowerCase(), wordFreqMap.getOrDefault(word.toString().toLowerCase(), 0L) + 1);
 		}
 		int count = wordFreqMap.keySet().size();
 		responseModel.setDistinctWordCount(count);

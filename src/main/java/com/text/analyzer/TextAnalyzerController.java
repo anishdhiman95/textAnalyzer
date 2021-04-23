@@ -57,7 +57,7 @@ public class TextAnalyzerController {
 		}
 		byte[] bytes = file.getBytes();
 
-		// Command/Operation Design Pattern
+		// Observer Design Pattern
 		List<TextProcessor> processorList = Arrays.asList(sentenceProcessor, paragraphProcessor, wordProcessor,
 				distinctWordProcessor, wordFrequencyProcessor);
 

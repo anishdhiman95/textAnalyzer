@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class LogActivityAspect {
 
 	/**
-	 * Aspect Method for Logging. The poincut here is @Around for based on the
+	 * Aspect Method for Logging. The pointcut here is @Around for based on the
 	 * annotation 'LogActivity'.
 	 * 
 	 * @param joinPoint

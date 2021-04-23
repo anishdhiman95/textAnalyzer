@@ -31,7 +31,6 @@ This is a Spring boot application that exposes APIs to analyze text documents. T
 
 **EXTENDING FUNCTIONALITY**
 Since the code is using a Command Design Pattern, on can implement additional Logic by simply implementing TextProcessor.java Interface and adding it to the processor list.
-
 For the purpose of logging, Aspects have been introduced that mark the start and end of a Proessor class.
 
 #### COVERAGE
